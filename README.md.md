@@ -20,7 +20,8 @@ Facilitate Ethereum (Crypto Currencies)  buying focus on unbanked (no cards) and
 Web project developed with Angular using truffle and ganache.
 Steps to execute:
 1. Open the project in Visual Studio code
-2. Open a terminal (in Vs code)  an enter the following command:
+2. Open a terminal (in Vs code)  an enter the following commands:
+  "npm install @truffle/hdwallet-provider"
 	 "truffle migrate --network development" to deploy to ganache on port 8545
 3. enter the following command: "npm start to start the web server" to start the web server.
 4. In a browser with Metamask go to http://localhost:4200/
