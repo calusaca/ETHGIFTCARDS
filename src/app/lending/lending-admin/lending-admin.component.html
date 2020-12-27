@@ -1,0 +1,56 @@
+<h1 class="headline center-content">
+  LENDER ADMINISTRATION
+</h1>
+<mat-grid-list cols="2" rowHeight="180px">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-form-field id="address-selector" class="half-width">
+      <mat-label>Selected Wallet Address:</mat-label>
+      <input matInput disabled value="{{model.account}}" (selectionChange)="refreshBalance()">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="!this.model.enrolled">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>ENROLL CURRENT ADDRESS AS LENDER?</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button id="send" (click)="enrollLender()">ENROLL</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="this.model.enrolled">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>ADD FUNDS (ETH):</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>ADD FUNDS (ETH):</mat-label>
+          <input type="text" matInput id="amount" placeholder="Amount" (change)="setAmount($event)">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button id="deposit" (click)="depositFunds()">DEPOSIT</button>
+      </mat-card-actions>
+
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="this.model.enrolled">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>WITHDRAW FUNDS (ETH):</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button id="withdraw" (click)="withdrawFunds()">WITHDRAW</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="this.model.enrolled">
+    <mat-card>
+      <mat-card-title>Status</mat-card-title>
+      <mat-card-content>
+        <p>You have <span id="balance">{{model.balance}}</span> ETH deposited</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

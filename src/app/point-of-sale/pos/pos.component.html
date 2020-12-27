@@ -1,0 +1,56 @@
+<h1 class="headline center-content">
+  POINT OF SALE
+</h1>
+<mat-grid-list cols="2" rowHeight="180px">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-form-field id="address-selector" class="half-width">
+      <mat-label>Selected Wallet Address:</mat-label>
+      <input matInput disabled value="{{model.account}}" (selectionChange)="refreshBalance()">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="this.model.account !== ''">
+    <mat-card>
+      <mat-card-title>Status</mat-card-title>
+      <mat-card-content>
+        <p>Total Available ETHEREUM for sell: <span id="balance">{{model.totalPoolBalance}}</span> ETH</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="this.model.account !== ''">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>SELL ETH GIFT:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>AMOUNT TO BUY (ETH):</mat-label>
+          <input type="text" matInput id="amount" placeholder="Amount" (change)="setAmount($event)">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button id="deposit" (click)="generateSell()">SELL</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="2" *ngIf="this.model.showGiftCard">
+    <mat-card style="background-color: aquamarine;">
+      <mat-card-header>
+        <mat-card-title>ETH GIFT CARD</mat-card-title>
+      </mat-card-header>
+      <mat-card-content >
+        <mat-form-field style="display: block;">
+          <mat-label>AMOUNT IN ETH:</mat-label>
+          <input disabled type="text" value={{this.model.giftCardAmount}} matInput id="giftCardAmount" placeholder="Amount">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ID:</mat-label>
+          <input disabled type="text" value={{this.model.giftCardId}} matInput id="giftCardId" placeholder="Amount">
+          <p>Please remember to write down and hide this number since is the only way to redeem your gift card</p>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button id="deposit" (click)="hideGiftCard()">CLOSE</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
