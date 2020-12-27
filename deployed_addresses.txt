@@ -1,0 +1,129 @@
+DEPLOYED ADDRESS IS A WORK IN PROGRESS, I AM INVESTIGATING ABOUT THE ERROR BELOW, I TRIED TO DEPLOY ON RINKEBY and ROPSTEN BUT SAME
+ISSUE. I DOUBLE CHECKED THAT THE ACCOUNT HAS ETHER ON EACH NETWORK BUT SAME PROBLEM, AND ALSO I WAS ABLE TO DEPLOY THE TEST CONTRACT PROOF-OF-EXISTENCE but this error is new to me.
+
+F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\request\request.js:849
+          var e = new Error('ETIMEDOUT')
+                  ^
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: ETIMEDOUT
+    at Timeout._onTimeout (F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\request\request.js:849:19)
+    at listOnTimeout (internal/timers.js:549:17)
+    at processTimers (internal/timers.js:492:7)
+    at PollingBlockTracker._performSync (F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\eth-block-tracker\src\polling.js:51:24)  
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+
+
+Error on trying to deploy on rinkeby and ropsten
+
+PS F:\Sources\Blockchain Developer Bootcamp 2020\Final Project> truffle migrate --network ropsten
+Warning: Please rename truffle.js to truffle-config.js to ensure Windows compatibility.
+
+Compiling your contracts...
+===========================
+> Compiling .\contracts\GiftCardsPool.sol
+> Compilation warnings encountered:
+
+    /F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/ConvertLib.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+,/F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/GiftCardsPool.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+,/F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/LendingPool.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+,/F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/Migrations.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" 
+for non-open-source code. Please see https://spdx.org for more information.
+,/F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/GiftCardsPool.sol:13:1: Warning: This contract has a payable fallback function, but 
+no receive ether function. Consider adding a receive ether function.
+contract GiftCardsPool {
+^ (Relevant source part starts here and spans across multiple lines).
+/F/Sources/Blockchain Developer Bootcamp 2020/Final Project/contracts/GiftCardsPool.sol:63:5: The payable fallback function is defined here.
+    fallback() external payable {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+> Artifacts written to F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\build\contracts
+> Compiled successfully using:
+   - solc: 0.6.12+commit.27d51765.Emscripten.clang
+
+Warning: Please rename truffle.js to truffle-config.js to ensure Windows compatibility.
+Warning: Please rename truffle.js to truffle-config.js to ensure Windows compatibility.
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'ropsten-fork'
+> Network id:      3
+> Block gas limit: 8000000 (0x7a1200)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > block number:        9342254
+   > block timestamp:     1609070740
+   > account:             0xDf122bB4B96C4E61340949C8c7d7d9F822a5268c
+   > balance:             1.997122425
+   > gas used:            205035 (0x320eb)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00041007 ETH
+
+   -------------------------------------
+   > Total cost:          0.00041007 ETH
+
+
+2_deploy_lending.js
+===================
+
+   Deploying 'ConvertLib'
+   ----------------------
+   > block number:        9342256
+   > block timestamp:     1609070746
+   > account:             0xDf122bB4B96C4E61340949C8c7d7d9F822a5268c
+   > balance:             1.996876333
+   > gas used:            95686 (0x175c6)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000191372 ETH
+
+
+   Deploying 'LendingPool'
+   -----------------------
+   > block number:        9342257
+   > block timestamp:     1609070756
+   > account:             0xDf122bB4B96C4E61340949C8c7d7d9F822a5268c
+   > balance:             1.995552279
+   > gas used:            662027 (0xa1a0b)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001324054 ETH
+
+   -------------------------------------
+   > Total cost:         0.001515426 ETH
+
+
+3_deploy_giftcards.js
+=====================
+
+   Replacing 'ConvertLib'
+   ----------------------
+   > block number:        9342259
+   > block timestamp:     1609070761
+   > account:             0xDf122bB4B96C4E61340949C8c7d7d9F822a5268c
+   > balance:             1.995306187
+   > gas used:            95686 (0x175c6)
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000191372 ETH
+
+
+   Deploying 'GiftCardsPool'
+   -------------------------
+
+F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\request\request.js:849
+          var e = new Error('ETIMEDOUT')
+                  ^
+Error: PollingBlockTracker - encountered an error while attempting to update latest block:
+Error: ETIMEDOUT
+    at Timeout._onTimeout (F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\request\request.js:849:19)
+    at listOnTimeout (internal/timers.js:549:17)
+    at processTimers (internal/timers.js:492:7)
+    at PollingBlockTracker._performSync (F:\Sources\Blockchain Developer Bootcamp 2020\Final Project\node_modules\eth-block-tracker\src\polling.js:51:24)  
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
