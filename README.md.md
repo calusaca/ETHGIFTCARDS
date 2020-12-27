@@ -23,5 +23,7 @@ Steps to execute:
 2. Open a terminal (in Vs code)  an enter the following commands:
   "npm install @truffle/hdwallet-provider"
 	 "truffle migrate --network development" to deploy to ganache on port 8545
-3. enter the following command: "npm start to start the web server" to start the web server.
+3. enter the following commands: 
+    "npm update"
+    "npm start" to start the web server" to start the web server.
 4. In a browser with Metamask go to http://localhost:4200/
