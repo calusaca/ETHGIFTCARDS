@@ -21,6 +21,7 @@ Web project developed with Angular using truffle and ganache.
 Steps to execute:
 1. Open the project in Visual Studio code
 2. Open a terminal (in Vs code)  an enter the following commands:
+  "npm install"
   "npm install @truffle/hdwallet-provider"
 	 "truffle migrate --network development" to deploy to ganache on port 8545
 3. enter the following commands: 
